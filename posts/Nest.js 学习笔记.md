@@ -190,7 +190,7 @@ export async function getStaticPaths() {
 
 ## 使用动态路由的注意点
 
-- `**getStaticPaths**`
+- `getStaticPaths`
 
    1. 返回的对象中，第一个属性 paths 必须是一个由对象组成的数组，每个对象中都需要有一个params属性，里面用来存放路由所需的信息。如果不是这种结构，`getStaticPaths`会失败。
 
