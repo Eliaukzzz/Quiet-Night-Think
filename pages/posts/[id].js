@@ -1,7 +1,9 @@
 import Head from "next/head";
+import ReactMarkdown from "react-markdown";
 import Date from "../../components/date";
 import Layout from "../../components/layout";
 import utilStyles from "../../styles/utils.module.css";
+import CodeBlock from "../../components/codeblock";
 import { getAllPostIds, getPostData } from "../../lib/posts";
 
 // 获取指定路由数据
@@ -33,7 +35,10 @@ export default function Post({ postData }) {
         <div className={utilStyles.lightText}>
           <Date dateString={postData.date} />
         </div>
-        <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
+        {/* <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} /> */}
+        <ReactMarkdown components={CodeBlock}>
+          {postData.markdown}
+        </ReactMarkdown>
       </article>
     </Layout>
   );
